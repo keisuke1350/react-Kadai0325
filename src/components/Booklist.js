@@ -19,7 +19,15 @@ const Booklist = (props) => {
                     <p>now loading...</p>
                 ) : (
                     bookData.data.items.map((x, index) => (
-                        <li key={index}>{x.volumeInfo.title}</li>
+                        <li key={index}>
+                            <h2>{x.volumeInfo.title}</h2>
+                            <p><img src = {x.volumeInfo.imageLinks ? x.volumeInfo.imageLinks.smallThumbnail:""}></img></p>
+                            <p>{x.volumeInfo.authors}</p>
+                            <p>{x.volumeInfo.description}</p>
+                            <p>{x.volumeInfo.publishedDate}</p>
+                            <a href = {x.volumeInfo.canonicalVolumeLink}>{x.volumeInfo.canonicalVolumeLink}</a>
+                        
+                        </li>
                     ))
                 )
             }
